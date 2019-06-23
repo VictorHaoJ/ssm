@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+#    url: jdbc:mysql://localhost:3306/db_haojiao?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT
+    url: jdbc:mysql://localhost:3306/db_haojiao?useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root1234
+
+#mybatis:
+#  mapper-locations: com.victor.ssm.mybatis.mapper
+#  config-location: classpath:spring-mybatis.xml
