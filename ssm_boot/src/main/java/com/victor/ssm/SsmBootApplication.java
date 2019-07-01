@@ -10,7 +10,6 @@ public class SsmBootApplication {
 
     public static void main(String[] args) {
 
-        System.out.println("看看有没有乱码");
         SpringApplication.run(SsmBootApplication.class, args);
     }
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.victor.ssm.mybatis.mapper.PersonMapper">
+    
+    <resultMap id="baseResultMap" type="com.victor.ssm.mybatis.entity.Person" >
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+        <result column="gender" jdbcType="INTEGER" property="gender" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+    </resultMap>
+
+    <select id="selectById" resultType="com.victor.ssm.mybatis.entity.Person" >
+      select * from t_person where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.victor.ssm.mybatis.entity.Person" >
+        insert into t_person(user_name, age, gender, email)
+        values(#{userName}, #{age}, #{gender}, #{email})
+    </insert>
+
+</mapper>
