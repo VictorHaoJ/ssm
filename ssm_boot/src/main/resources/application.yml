@@ -11,9 +11,17 @@ spring:
 
 debug:
   true
-#logging:
-#  level: debug
-
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
+  # configuration 和 config-location 不能同时存在
+  configuration:
+    # 开启二级缓存，还需要将 Mapper 文件中，新增<cache/> 标签；pojo对象还需要实现 Serializable 接口
+    cache-enabled: true
+    map-underscore-to-camel-case: true
+    # 打印日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #  config-location: classpath:spring-mybatis.xml
+
+
+pagehelper:
+  helper-dialect: mysql

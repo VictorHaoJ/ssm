@@ -2,12 +2,14 @@ package com.victor.ssm.mybatis.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author haojiao
  * @create ${Date}
  */
 @Data
-public class Person {
+public class Person implements Serializable {
 
     private Integer id;
 
