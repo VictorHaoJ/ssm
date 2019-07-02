@@ -11,10 +11,12 @@ public class Person {
 
     private Integer id;
 
-    private String name;
+    private String userName;
 
     private Integer age;
 
     private Integer gender;
+
+    private String email;
 
 }

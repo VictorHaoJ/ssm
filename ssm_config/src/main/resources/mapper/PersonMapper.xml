@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.victor.ssm.config.mybatis.mapper.PersonMapper">
+
+    <!--
+        二级缓存总结：
+            1，select：
+                flushCache默认为false，表示调用该语句时，不会清空一二级缓存
+                useCache默认为true，该语句的执行结果会被保存在二级缓存中
+            2，insert,update,delete:
+                flushCache默认为true，表示任何时候语句被调用，都会导致本地缓存和二级缓存清空
+                useCache属性不存在
+    -->
+    <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
+
+    <resultMap id="baseResultMap" type="com.victor.ssm.config.mybatis.entity.Person" >
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <!--<result column="age" jdbcType="INTEGER" property="age" typeHandler="com.victor.ssm.typehandler.AgeTypeHandler" />-->
+        <result column="age" jdbcType="INTEGER" property="age" />
+        <result column="gender" jdbcType="INTEGER" property="gender" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+    </resultMap>
+
+    <!--resultType="com.victor.ssm.mybatis.entity.Person" -->
+    <select id="selectById" resultMap="baseResultMap" >
+      select * from t_person where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.victor.ssm.config.mybatis.entity.Person" >
+        insert into t_person(user_name, age, gender, email)
+        values(#{userName}, #{age}, #{gender}, #{email})
+    </insert>
+
+    <select id="listPerson" resultType="com.victor.ssm.config.mybatis.entity.Person" >
+        select * from t_person
+    </select>
+
+</mapper>
