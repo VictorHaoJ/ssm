@@ -18,4 +18,8 @@ public interface PersonMapper {
     void insert(Person person);
 
     List<Person> listPerson();
+
+    Integer countPerson1();
+
+    Integer countPerson2();
 }
