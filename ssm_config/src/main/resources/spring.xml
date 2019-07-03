@@ -10,6 +10,11 @@
                            http://mybatis.org/schema/mybatis-spring
                            http://mybatis.org/schema/mybatis-spring.xsd">
 
+    <!--
+        classpath*:dev.properties
+        classpath*:*.properties
+        classpath:dev.properties
+    -->
     <context:property-placeholder location="classpath:dev.properties" />
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
