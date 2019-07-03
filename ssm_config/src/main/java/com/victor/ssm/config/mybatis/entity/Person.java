@@ -17,6 +17,7 @@ public class Person {
     private Integer age;
 
     private GenderEnum gender;
+//    private Integer gender;
 
     private String email;
 

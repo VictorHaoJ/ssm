@@ -27,9 +27,16 @@
       select * from t_person where id = #{id}
     </select>
 
-    <insert id="insert" parameterType="com.victor.ssm.config.mybatis.entity.Person" >
+    <!--
+        keyProperty + useGeneratedKeys  已返回 id
+        keyProperty + keyColumn + useGeneratedKeys id返回
+
+        keyColumn + useGeneratedKeys id无返回
+        keyProperty + keyColumn id无返回
+    -->
+    <insert id="insert" keyProperty="id" keyColumn="id" parameterType="com.victor.ssm.config.mybatis.entity.Person" >
         insert into t_person(user_name, age, gender, email)
-        values(#{userName}, #{age}, #{gender}, #{email})
+        values(#{userName}, #{age}, #{gender, typeHandler=com.victor.ssm.config.mybatis.typehandler.GenderTypeHandler}, #{email})
     </insert>
 
     <select id="listPerson" resultType="com.victor.ssm.config.mybatis.entity.Person" >

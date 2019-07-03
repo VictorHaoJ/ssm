@@ -39,4 +39,22 @@ public class MybatisTest {
         Person person = personMapper.selectById(24);
         System.out.println(person);
     }
+
+
+    @Test
+    public void test3() throws IOException {
+        String resouce = "classpath*:spring.xml";
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(resouce);
+
+        PersonMapper personMapper = context.getBean(PersonMapper.class);
+
+        Person p = new Person();
+        p.setAge(27);
+        p.setUserName("meila");
+//        p.setGender(GenderEnum.FEMALE);
+        p.setEmail(p.getUserName()+"@163.com");
+        personMapper.insert(p);
+        System.out.println(p);
+
+    }
 }
