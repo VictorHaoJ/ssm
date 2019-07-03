@@ -1,4 +1,4 @@
-package com.victor.ssm.config.mybatis.controller;
+package com.victor.ssm.config.controller;
 
 import com.victor.ssm.config.mybatis.entity.Person;
 import com.victor.ssm.config.mybatis.mapper.PersonMapper;

@@ -18,7 +18,7 @@
         <result column="user_name" jdbcType="VARCHAR" property="userName" />
         <!--<result column="age" jdbcType="INTEGER" property="age" typeHandler="com.victor.ssm.typehandler.AgeTypeHandler" />-->
         <result column="age" jdbcType="INTEGER" property="age" />
-        <result column="gender" jdbcType="INTEGER" property="gender" />
+        <result column="gender" jdbcType="INTEGER" property="gender" typeHandler="com.victor.ssm.config.mybatis.typehandler.GenderTypeHandler" />
         <result column="email" jdbcType="VARCHAR" property="email" />
     </resultMap>
 

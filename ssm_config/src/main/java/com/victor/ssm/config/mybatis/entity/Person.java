@@ -1,5 +1,6 @@
 package com.victor.ssm.config.mybatis.entity;
 
+import com.victor.ssm.config.enums.GenderEnum;
 import lombok.Data;
 
 /**
@@ -15,7 +16,7 @@ public class Person {
 
     private Integer age;
 
-    private Integer gender;
+    private GenderEnum gender;
 
     private String email;
 
