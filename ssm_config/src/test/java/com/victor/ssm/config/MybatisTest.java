@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,6 +27,16 @@ public class MybatisTest {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         PersonMapper mapper = sqlSession.getMapper(PersonMapper.class);
         Person person = mapper.selectById(1);
+        System.out.println(person);
+    }
+
+    @Test
+    public void test2() throws IOException {
+        String resouce = "classpath*:spring.xml";
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(resouce);
+
+        PersonMapper personMapper = context.getBean(PersonMapper.class);
+        Person person = personMapper.selectById(24);
         System.out.println(person);
     }
 }

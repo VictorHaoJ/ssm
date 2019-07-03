@@ -2,19 +2,34 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           https://www.springframework.org/schema/context/spring-context.xsd
+                           http://mybatis.org/schema/mybatis-spring
+                           http://mybatis.org/schema/mybatis-spring.xsd">
 
     <context:property-placeholder location="classpath*:*.properties" />
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="url" value="${jdbc.url}" />
-        <property name="driverClassLoader" value="${jdbc.driverClass}" />
+        <property name="driverClassName" value="${jdbc.driverClass}" />
         <property name="username" value="${jdbc.username}" />
-        <property name="password" value="${password}" />
+        <property name="password" value="${jdbc.password}" />
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-    </bean>
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <property name="mapperLocations" value="classpath:mapper/*Mapper.xml" />
+     </bean>
+
+    <!-- mapper 接口扫描方式一 -->
+    <mybatis:scan base-package="com.victor.ssm.config.mybatis.mapper" />
+
+    <!-- mapper 接口扫描方式二 -->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.victor.ssm.config.mybatis.mapper" />
+    </bean>-->
 </beans>

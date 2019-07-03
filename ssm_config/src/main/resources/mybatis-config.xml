@@ -10,7 +10,7 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
 
-    <environments default="dev">
+    <!--<environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
@@ -20,12 +20,12 @@
                 <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
-    </environments>
+    </environments>-->
 <!--
     <mappers>
         <package name="com.victor.ssm.config.mybatis.mapper" />
     </mappers>-->
-    <mappers>
+    <!--<mappers>
         <mapper class="com.victor.ssm.config.mybatis.mapper.PersonMapper"/>
-    </mappers>
+    </mappers>-->
 </configuration>
