@@ -2,11 +2,13 @@ package com.victor.ssm.config;
 
 import com.victor.ssm.config.mybatis.entity.Person;
 import com.victor.ssm.config.mybatis.mapper.PersonMapper;
+import com.victor.ssm.config.service.PersonService;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
@@ -17,6 +19,24 @@ import java.io.InputStream;
  * @create ${Date}
  */
 public class MybatisTest {
+
+    @Test
+    public void test4(){
+        ApplicationContext ioc = getApplicationContext();
+
+        PersonService personService = ioc.getBean(PersonService.class);
+
+        personService.buyBook(1, 1, 1);
+
+
+
+    }
+
+    public ApplicationContext getApplicationContext() {
+        String resouce = "classpath*:spring.xml";
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(resouce);
+        return context;
+    }
 
     @Test
     public void testSelectById() throws IOException {
