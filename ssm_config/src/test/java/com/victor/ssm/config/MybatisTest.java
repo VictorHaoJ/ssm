@@ -48,6 +48,7 @@ public class MybatisTest {
         PersonMapper mapper = sqlSession.getMapper(PersonMapper.class);
         Person person = mapper.selectById(1);
         System.out.println(person);
+
     }
 
     @Test

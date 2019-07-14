@@ -9,9 +9,9 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface PersonMapper {
 
-//    @Select("select * from t_person where id = #{id}")
+    //    @Select("select * from t_person where id = #{id}")
     Person selectById(@Param("id") Integer id);
 
-//    @Insert("insert into t_person values (#{id}, #{name}, #{age}, #{gender})")
+    //    @Insert("insert into t_person values (#{id}, #{name}, #{age}, #{gender})")
     void insert(Person person);
 }

@@ -21,8 +21,8 @@
             </dataSource>
         </environment>
     </environments>-->
-<!--
-    <mappers>
+
+    <!--<mappers>
         <package name="com.victor.ssm.config.mybatis.mapper" />
     </mappers>-->
     <!--<mappers>

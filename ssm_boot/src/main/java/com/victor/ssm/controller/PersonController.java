@@ -64,4 +64,5 @@ public class PersonController {
         list.add(personMapper.countPerson2());
         return list;
     }
+
 }
